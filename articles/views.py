@@ -15,7 +15,7 @@ def detail(request,pk):
     context = {
         "article":article
     }
-    return render(request,"single_article.html",context)
+    return render(request,"single_article.html",context,locals())
 
 
 def contact(request):
