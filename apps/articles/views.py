@@ -45,7 +45,7 @@ def detail(request,pk):
         "categroies":categroies,
         "tags":tags
     }
-    return render(request,"single_article.html",context,locals())
+    return render(request,"single_article.html",locals())
 
 
 def contact(request):
@@ -57,7 +57,8 @@ def about(request):
 
 
 def search(request):
-    keyword = request.GET.get("keyword")
+    keyword = request.GET.get('keyword')
+    print(keyword)
     if not keyword:
         err_msg = "请输入关键字"
         return render(request,'index.html',locals())
@@ -75,10 +76,4 @@ def search(request):
     categroies = Category.objects.all()
     #标签
     tags = Tag.objects.all()
-    context = {
-        "article":article,
-        "lastest_articles":lastest_articles,
-        "categroies":categroies,
-        "tags":tags,
-    }
     return render(request,"index.html",locals())

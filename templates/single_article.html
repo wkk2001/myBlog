@@ -4,7 +4,7 @@
 	<h1>最新发布</h1>
 	<!-- 标题，标签，分类，留言总数，发布时间 -->
 	<article>
-		<h2><a href=" {% url 'detail' article.id %} ">{{ article.title }}</a></h2>
+		<h2><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h2>
 		<div class="row">
 			<div class="col-md-6 col-sm-6">
 				<span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;
