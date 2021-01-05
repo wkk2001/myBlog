@@ -68,3 +68,13 @@ git push 之后的提交
 5按照分类，标签的一个聚类操作
 
 6联系我页面，发送邮件
+
+6  聚拢到apps文件夹
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0,os.path.join(BASE_DIR,"apps"))
+
+
+a:实现标签，实现目录，实现跳转，实现搜索，实现分页，实现图标
+7评论集成插件
+django-contrib-comments
+django-markdownfy
