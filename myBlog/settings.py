@@ -40,8 +40,12 @@ INSTALLED_APPS = [
     'articles.apps.ArticlesConfig',
     'user.apps.UserConfig',
     'courses.apps.CoursesConfig',
+    'markdownx',
+    'django.forms',
+    'django.contrib.sites',
+    'django_comments',
 ]
-
+SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -69,7 +73,7 @@ TEMPLATES = [
         },
     },
 ]
-
+FORMS_RENDERER = "django.forms.renderers.TemplatesSettings"
 WSGI_APPLICATION = 'myBlog.wsgi.application'
 
 
@@ -121,6 +125,8 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS=[
+STATICFILES_DIRS=(
     os.path.join(BASE_DIR,'static'),
-    ]
+    )
+
+# STATIC_ROOT = os.path.join(BASE_DIR,'static')

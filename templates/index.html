@@ -31,9 +31,9 @@
 
 		<img src="http://placekitten.com/900/300" class="img-responsive">
 		<br />
-		<p class="lead">{{ article.abstract }}</p>
+		<p class="lead">{{ article.get_abstract_markdown }}</p>
 		<p>
-		{{ article.content | truncatechars:200}}	
+		{{ article.get_content_markdown | truncatechars:200}}	
 		</p>
 		<p class="text-right"><a href="{% url 'detail' article.id %}">阅读全文...</a></p>
 		<hr>

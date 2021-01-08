@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import Articles,Category,Tag
 from django.core.paginator import Paginator
 from django.db.models import Q
+from markdownx.utils import markdownify
 #  Create your views here.
 #  FBV function based view  基于函数的视图
 def index(request):
@@ -77,3 +78,9 @@ def search(request):
     #标签
     tags = Tag.objects.all()
     return render(request,"index.html",locals())
+
+
+def content_to_html(self):
+    return markdownify(self.content)
+def abstract_to_html(self):
+    return markdownify(self.abstract)

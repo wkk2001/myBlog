@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
+from markdownx.utils import markdownify
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=128,verbose_name="文章分类",help_text="文章分类")
@@ -49,5 +50,11 @@ class Articles(models.Model):
     #反向解析，得到每篇文章路径
     def get_absolute_url(self):
         return reverse('detail',args=[str(self.pk)])
+
+    def get_content_markdown(self):
+        return markdownify(self.content)
+
+    def get_abstract_markdown(self):
+        return markdownify(self.abstract)
 
 
